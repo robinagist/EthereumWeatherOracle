@@ -1,0 +1,9 @@
+{
+  "name": "wxoracle",
+  "version": "0.0.1",
+  "dependencies": {
+    "ethereumjs-tx": "1.3.4",
+    "ethereumjs-util": "5.1.5",
+    "web3": "1.0.0-beta.33"
+  }
+}
