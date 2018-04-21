@@ -19,7 +19,7 @@ const web3 = new Web3(new Web3.providers.WebsocketProvider(testNetWS))
 const account = "0xf17f52151EbEF6C7334FAD080c5704D77216b732"
 
 // we're using the Dark Sky API - get your API key at darksky.net
-const apiKey = "70ad7f20bbf194a50e3375d087bb8969"
+const apiKey = "GetYourOwnAPIKey"
 
 // store the ABI for the contract so we can use it later
 var abi
