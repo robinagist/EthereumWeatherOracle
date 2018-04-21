@@ -6,29 +6,27 @@ pragma solidity ^0.4.21;
 contract WeatherOracle {
 
     address public owner;
-    string public temp;
+    uint public temp;
     uint public timestamp;
 
-    event TempRequest(address from, string lat, string lon);
-    event FilledRequest(uint txId);
+    event TempRequest(address sender);
+    event FilledRequest(uint rtemp);
 
     function constructor() public {
-        temp = "";
+        temp = 0;
         owner = msg.sender;
     }
 
-    function request(string lat, string lon) public {
-        emit TempRequest(msg.sender, lat, lon);
+    function request() public returns (string) {
+        emit TempRequest(msg.sender);
+        return "sent";
     }
 
-    function fill(uint txId, uint temptime, string rtemp) public {
-        timestamp = temptime;
+    function fill(uint rtemp) public returns (uint){
         temp = rtemp;
-        emit FilledRequest(txId);
-    }
-
-    function getTemp() public view returns (string) {
+        emit FilledRequest(rtemp);
         return temp;
     }
+
 
 }
