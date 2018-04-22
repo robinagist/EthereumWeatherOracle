@@ -19,50 +19,31 @@ const web3 = new Web3(new Web3.providers.WebsocketProvider(testNetWS))
 const account = "0xf17f52151EbEF6C7334FAD080c5704D77216b732"
 
 // we're using the Dark Sky API - get your API key at darksky.net
-const apiKey = "GetYourOwnAPIKey"
+const apiKey = "70ad7f20bbf194a50e3375d087bb8969"
 
 // store the ABI for the contract so we can use it later
 var abi
 
-// if a contract address is passed in on the command line, use it
-// otherwise: load, compile and deploy the included contract (contract.sol)
+
+
+// load, compile and deploy the included contract (contract.sol)
 let c = loadCompileDeploy("contract.sol", ":WeatherOracle").then(function(address) {
     console.log("contract address: " + address)
-    start(address)
+    startListener(address)
 }, function(err) {
     console.log("shit didn't work.  here's why: " + err)
 })
 
-sleep(3000).then(() => {
-    // handler(address)
-    // callContractForRequest(contractAddress)
-});
 
 // starts the event listener
-function start(address) {
+function startListener(address) {
     console.log("starting event monitoring on contract: " + address)
-    var myContract = new web3.eth.Contract(abi, address);
-
-
-
-    web3.eth.subscribe('pendingTransactions', function(error, result){
-        if (!error)
-            console.log("pending transaction >> " + result)
-        else
-            console.log("error >> " + error)
-    })
-
-
-
+    let myContract = new web3.eth.Contract(abi, address);
     myContract.events.TempRequest({fromBlock: 0, toBlock: 'latest'
     }, function(error, event){ console.log(">>> " + event) })
         .on('data', (log) => {
- //           let { returnValues: { from, to, value }, blockNumber } = log
- //           console.log(`----BlockNumber (${blockNumber})----`)
- //           console.log("sending request to Dark Skys API...")
-            console.log("event data: " + JSON.stringify(log), 2)
+            console.log("event data: " + JSON.stringify(log, undefined, 2))
             handler(address)
-
         })
         .on('changed', (log) => {
             console.log(`Changed: ${log}`)
@@ -70,7 +51,6 @@ function start(address) {
         .on('error', (log) => {
             console.log(`error:  ${log}`)
         })
-
 }
 
 

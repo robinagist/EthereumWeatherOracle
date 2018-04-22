@@ -20,24 +20,33 @@ const contractName = ':WeatherOracle'
 const abi = loadABI(filename, contractName)
 
 // cut and paste the deployed contract address
-const address = "0x0a143BDF026Eabaf95d3E88AbB88169674Db92f5"
+const address = "0x7f1Dc0F5F8dafd9715Ea51f6c11b92929b2Dbdea"
 
 // run the request method on the contract
 console.log("requesting temperature from oracle")
 callContractForRequest(address)
+    .then(function(result) {
+        console.log("result: " + result)
+    }, function(error) {
+        console.log("oops! " + error)
+    }
+
+)
 
 
-function callContractForRequest(address) {
-    console.log("calling address: " + address)
-    let MyContract = new web3.eth.Contract(abi, address);
+async function callContractForRequest(addr) {
+    console.log("calling address: " + addr)
+    let MyContract = new web3.eth.Contract(abi, addr);
     MyContract.options.from = account
     MyContract.options.gas = 100000
-    MyContract.methods.request().send()
+    let k = MyContract.methods.request().send()
         .then(function(result) {
             console.log("EVM call to request - got back: " + result)
         }, function(error) {
             console.log("error "  + error)
         })
+    await k
+    return "much success!"
 }
 
 function loadABI(filename, contractName) {
