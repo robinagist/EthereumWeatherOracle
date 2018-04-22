@@ -1,5 +1,6 @@
 # EthereumWeatherOracle
 Code for Medium article: "Building an Ethereum Oracle with Web3.js 1.0" 
+
 https://medium.com/@robinkryptyk/building-an-ethereum-oracle-with-web3-js-1-0-1272b59cfc31
 
 ### oracle
