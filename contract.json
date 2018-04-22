@@ -1,4 +1,86 @@
 
-======= contract.sol:WeatherOracle =======
-Contract JSON ABI 
-[{"constant":false,"inputs":[],"name":"request","outputs":[{"name":"","type":"string"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"rtemp","type":"uint256"}],"name":"fill","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"temp","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"owner","outputs":[{"name":"","type":"address"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[],"name":"constructor","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"timestamp","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"anonymous":false,"inputs":[{"indexed":false,"name":"sender","type":"address"}],"name":"TempRequest","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"name":"rtemp","type":"uint256"}],"name":"FilledRequest","type":"event"}]
+[{
+  "constant": false,
+  "inputs": [],
+  "name": "request",
+  "outputs": [{
+    "name": "",
+    "type": "string"
+  }],
+  "payable": false,
+  "stateMutability": "nonpayable",
+  "type": "function"
+}, {
+  "constant": false,
+  "inputs": [{
+    "name": "rtemp",
+    "type": "uint256"
+  }],
+  "name": "fill",
+  "outputs": [{
+    "name": "",
+    "type": "uint256"
+  }],
+  "payable": false,
+  "stateMutability": "nonpayable",
+  "type": "function"
+}, {
+  "constant": true,
+  "inputs": [],
+  "name": "temp",
+  "outputs": [{
+    "name": "",
+    "type": "uint256"
+  }],
+  "payable": false,
+  "stateMutability": "view",
+  "type": "function"
+}, {
+  "constant": true,
+  "inputs": [],
+  "name": "owner",
+  "outputs": [{
+    "name": "",
+    "type": "address"
+  }],
+  "payable": false,
+  "stateMutability": "view",
+  "type": "function"
+}, {
+  "constant": false,
+  "inputs": [],
+  "name": "constructor",
+  "outputs": [],
+  "payable": false,
+  "stateMutability": "nonpayable",
+  "type": "function"
+}, {
+  "constant": true,
+  "inputs": [],
+  "name": "timestamp",
+  "outputs": [{
+    "name": "",
+    "type": "uint256"
+  }],
+  "payable": false,
+  "stateMutability": "view",
+  "type": "function"
+}, {
+  "anonymous": false,
+  "inputs": [{
+    "indexed": false,
+    "name": "sender",
+    "type": "address"
+  }],
+  "name": "TempRequest",
+  "type": "event"
+}, {
+  "anonymous": false,
+  "inputs": [{
+    "indexed": false,
+    "name": "rtemp",
+    "type": "uint256"
+  }],
+  "name": "FilledRequest",
+  "type": "event"
+}]
